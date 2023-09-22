@@ -7,4 +7,7 @@ abstract interface class AppIcons {
   static const albums = '$path/icon_albums.svg';
   static const search = '$path/icon_search.svg';
   static const moreHorizontal = '$path/icon_more.svg';
+  static const trash = '$path/icon_trash.svg';
+  static const share = '$path/icon_share.svg';
+  static const moreBorderCircle = '$path/icon_more_border_circle.svg';
 }

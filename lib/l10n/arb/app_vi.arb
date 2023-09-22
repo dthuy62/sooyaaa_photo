@@ -2,6 +2,13 @@
   "text_gallery": "Thư viện",
   "text_for_you": "Cho bạn",
   "text_album": "Album",
-  "text_search": "Tìm kiếm"
+  "text_search": "Tìm kiếm",
+  "text_year": "Năm",
+  "text_month": "Tháng",
+  "text_date": "Ngày",
+  "text_all": "Tất cả ảnh",
+  "text_select": "Chọn",
+  "text_cancel": "Huỷ",
+  "text_select_items": "Select Items"
 
 }

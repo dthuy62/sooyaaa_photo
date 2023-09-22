@@ -1,132 +1,114 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../common/assets/app_icons.dart';
-import '../../common/widgets/svg_button.dart';
-import 'cubit/gallery_screen_app_bar_cubit.dart';
+import '../../common/extensions/context.dart';
+import '../../cubits/gallery_screen_app_bar_cubit.dart';
+import '../../cubits/gallery_screen_app_bar_state.dart';
+import 'helpers/tab_bar_helper.dart';
+import 'views/views.dart';
 
-class GalleryScreen extends StatelessWidget {
+class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
 
   @override
+  State<GalleryScreen> createState() => _GalleryScreenState();
+}
+
+class _GalleryScreenState extends State<GalleryScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 4, vsync: this, initialIndex: 3);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _tabController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final height = AppBar().preferredSize.height;
-    final safePadding = MediaQuery.of(context).padding.top;
-    return BlocProvider(
-      create: (context) => GalleryScreenAppBarCubit(),
-      child: BlocBuilder<GalleryScreenAppBarCubit, bool>(
-        builder: (context, state) {
-          return Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: Stack(
-              children: [
-                NotificationListener<ScrollNotification>(
-                  onNotification: (noti) {
-                    if (noti.metrics.pixels.floor() >= 78) {
-                      context
-                          .read<GalleryScreenAppBarCubit>()
-                          .setScrollToAppBar();
-                    } else {
-                      context
-                          .read<GalleryScreenAppBarCubit>()
-                          .setUnScrollToAppBar();
-                    }
-                    return true;
-                  },
-                  child: GridView.builder(
-                    shrinkWrap: true,
-                    padding: EdgeInsets.only(top: height + safePadding + 30),
-                    itemCount: List.generate(200, (index) => index).length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                          colors: [Color(0xba3f51b5), Color(0x9ee91e63)],
-                          stops: [0.1, 1],
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                        )),
-                      );
-                    },
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 3,
-                            mainAxisSpacing: 3),
+    final tabs = TabBarHelper.getTextTabsLocalized(context);
+    return BlocBuilder<GalleryScreenAppBarCubit, GalleryScreenAppBarState>(
+      builder: (context, state) {
+        return Scaffold(
+          extendBody: true,
+          body: Stack(
+            children: [
+              TabBarView(
+                controller: _tabController,
+                children: [
+                  const Center(
+                    child: Text('Năm'),
                   ),
-                ),
-                SafeArea(
-                    child: Container(
-                        height: height,
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                AnimatedDefaultTextStyle(
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      color:
-                                          state ? Colors.white : Colors.black),
-                                  duration: const Duration(milliseconds: 300),
-                                  child: Text(
-                                    '21 thg 9, 2023',
-                                  ),
-                                ),
-                                AnimatedDefaultTextStyle(
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14,
-                                      color:
-                                          state ? Colors.white : Colors.black),
-                                  duration: const Duration(milliseconds: 300),
-                                  child: Text(
-                                    'Đà Nẵng, P. Mỹ An',
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                TextButton(
-                                  onPressed: () {},
-                                  style: TextButton.styleFrom(
-                                    backgroundColor: Colors.grey.shade200,
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 14, vertical: 5),
-                                    minimumSize: const Size(50, 30),
-                                    tapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                  ),
-                                  child: const Text('Chọn'),
-                                ),
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                      backgroundColor: Colors.grey.shade200,
-                                      padding: const EdgeInsets.all(7),
-                                      shape: const CircleBorder(),
-                                      minimumSize: const Size(0, 0),
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                    ),
-                                    onPressed: () {},
-                                    child: const SvgButton(
-                                      AppIcons.moreHorizontal,
-                                      size: 18,
-                                    ))
-                              ],
-                            )
-                          ],
-                        ))),
-              ],
-            ),
-          );
-        },
-      ),
+                  const Center(
+                    child: Text('Tháng'),
+                  ),
+                  const Center(
+                    child: Text('Ngày'),
+                  ),
+                  NotificationListener<ScrollNotification>(
+                    onNotification: (noti) {
+                      if (noti.metrics.pixels.floor() >= 78) {
+                        context
+                            .read<GalleryScreenAppBarCubit>()
+                            .setScrollToAppBar();
+                      } else {
+                        context
+                            .read<GalleryScreenAppBarCubit>()
+                            .setUnScrollToAppBar();
+                      }
+                      return true;
+                    },
+                    child: const GalleryPhotoGridView(),
+                  ),
+                ],
+              ),
+              GalleryAppBarView(
+                isScrollToAppBar: state.isScrollToAppBar,
+                isSelectPhotos: state.isSelectPhotos,
+              ),
+              state.isSelectPhotos
+                  ? const SizedBox.shrink()
+                  : Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        height: 35,
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: context.theme.scaffoldBackgroundColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TabBar(
+                          controller: _tabController,
+                          dividerColor: Colors.transparent,
+                          indicatorColor: Colors.transparent,
+                          indicatorPadding: const EdgeInsets.symmetric(
+                              vertical: 3, horizontal: 3),
+                          indicatorSize: TabBarIndicatorSize.tab,
+                          // give the indicator a decoration (color and border radius)
+                          indicator: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: context.theme.colorScheme.primary,
+                          ),
+                          labelColor: Colors.white,
+                          unselectedLabelColor: Colors.black,
+                          tabs: tabs
+                              .map((tab) => Tab(
+                                    text: tab,
+                                  ))
+                              .toList(),
+                        ),
+                      ),
+                    ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

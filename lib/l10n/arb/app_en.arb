@@ -2,6 +2,12 @@
     "text_gallery": "Gallery",
     "text_for_you": "For you",
     "text_album": "Album",
-    "text_search": "Search"
-
+    "text_search": "Search",
+    "text_year": "Years",
+    "text_month": "Months",
+    "text_date": "Days",
+    "text_all": "All Photos",
+    "text_select": "Select",
+    "text_cancel": "Cancel",
+    "text_select_items": "Select Items"
 }
