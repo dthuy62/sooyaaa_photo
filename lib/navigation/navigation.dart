@@ -1,41 +1,35 @@
 import 'package:flutter/material.dart';
 
-import '../models/domain/article.dart';
-import '../models/domain/publication.dart';
-import '../screens/articles/articles.dart';
-import '../screens/details/details.dart';
+import '../screens/album/album.dart';
+import '../screens/for_you/for_you.dart';
+import '../screens/gallery/gallery.dart';
 import '../screens/home/home.dart';
-import '../screens/login/login.dart';
-import '../screens/tutorial/tutorial.dart';
+import '../screens/search/search.dart';
 
 abstract class AppRoutes {
-  static const tutorial = 'tutorial';
-  static const login = 'login';
+  static const gallery = 'gallery';
+  static const forYou = 'forYou';
   static const home = 'home';
-  static const details = 'details';
-  static const articles = 'articles';
+  static const album = 'album';
+  static const search = 'search';
 }
 
 abstract class AppNavigation {
   static Route<dynamic>? onGeneratedRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutes.tutorial:
-        return AppPageRoute((_) => const TutorialScreen(), settings);
+      case AppRoutes.gallery:
+        return AppPageRoute((_) => const GalleryScreen(), settings);
       case AppRoutes.home:
         return AppPageRoute((_) => const HomeScreen(), settings);
-      case AppRoutes.login:
-        return AppPageRoute((_) => const LoginScreen(), settings);
-      case AppRoutes.details:
+      case AppRoutes.forYou:
+        return AppPageRoute((_) => const ForYouScreen(), settings);
+      case AppRoutes.album:
         return AppPageRoute(
-          (context) => DetailsScreen(article: settings.arguments as Article),
+          (_) => const AlbumScreen(),
           settings,
         );
-      case AppRoutes.articles:
-        return AppPageRoute(
-            (context) => ArticlesScreen(
-                  publication: settings.arguments as Publication,
-                ),
-            settings);
+      case AppRoutes.search:
+        return AppPageRoute((_) => const SearchScreen(), settings);
       default:
         throw 'Cannot find destination route';
     }

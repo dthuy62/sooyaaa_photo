@@ -15,9 +15,9 @@ class DioClient {
   BaseOptions createBaseOptions() {
     return BaseOptions(
       baseUrl: baseUrl,
-      connectTimeout: connectTimeout,
-      receiveTimeout: receiveTimeout,
-      sendTimeout: sendTimeout,
+      connectTimeout: const Duration(milliseconds: connectTimeout),
+      receiveTimeout: const Duration(milliseconds: receiveTimeout),
+      sendTimeout: const Duration(milliseconds: sendTimeout),
     );
   }
 

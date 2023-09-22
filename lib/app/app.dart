@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/authentication/authentication_cubit.dart';
+import '../blocs/home_tab/home_tab_cubit.dart';
 import '../blocs/user/user_cubit.dart';
 import '../di/service_locator.dart';
 import '../domain/domain.dart';
@@ -31,6 +32,7 @@ class App extends StatelessWidget {
             create: (context) =>
                 UserCubit(context.read(), ServiceLocator.instance.inject()),
           ),
+          BlocProvider(create: (_) => HomeTabCubit())
         ],
         child: const AppView(),
       ),
@@ -44,15 +46,12 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      onGenerateRoute: AppNavigation.onGeneratedRoute,
-      initialRoute: context.read<AuthenticationCubit>().state != null
-          ? AppRoutes.home
-          : AppRoutes.login,
-    );
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        onGenerateRoute: AppNavigation.onGeneratedRoute,
+        initialRoute: AppRoutes.home);
   }
 }

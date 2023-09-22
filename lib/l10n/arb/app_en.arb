@@ -1,10 +1,7 @@
 {
-    "text_hello_world": "Hello World!",
-    "text_display_some_text": "Display some text!",
-    "text_bit": "bit",
-    "text_login": "Login",
-    "text_integration_token": "Integration token",
-    "text_publications": "Publications",
-    "text_today_articles": "Today's articles",
-    "text_how_to_get_medium_integration_token": "How to get Medium integration token?"
+    "text_gallery": "Gallery",
+    "text_for_you": "For you",
+    "text_album": "Album",
+    "text_search": "Search"
+
 }

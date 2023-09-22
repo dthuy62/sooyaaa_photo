@@ -6,7 +6,7 @@ A simple Flutter application used to view your Medium articles with integration 
 ## Setup
 ```sh
 flutter pub get
-flutter pub run build_runner build
+dart  run build_runner build
 ```
 
 ## Run staging 

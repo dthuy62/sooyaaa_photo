@@ -13,6 +13,11 @@ import 'common/error_screen.dart';
 const String authDioInstance = 'auth_dio';
 const String noAuthDioInstance = 'no_auth_dio';
 
+class Mutable<T> {
+  Mutable(this.value);
+  T value;
+}
+
 Future<void> bootstrap() async {
   FlutterError.onError = (FlutterErrorDetails details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
@@ -26,9 +31,5 @@ Future<void> bootstrap() async {
     storageDirectory: await getApplicationSupportDirectory(),
   );
 
-  runZonedGuarded(
-    () => runApp(const App()),
-    (Object error, StackTrace stackTrace) =>
-        log(error.toString(), stackTrace: stackTrace),
-  );
+  runApp(const App());
 }

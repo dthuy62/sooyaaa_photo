@@ -13,7 +13,7 @@ abstract class AppTheme {
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
       ),
-      textTheme: GoogleFonts.jetBrainsMonoTextTheme(),
+      textTheme: GoogleFonts.poppinsTextTheme(),
     );
   }
 
@@ -24,7 +24,7 @@ abstract class AppTheme {
       snackBarTheme: const SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
       ),
-      textTheme: GoogleFonts.jetBrainsMonoTextTheme(),
+      textTheme: GoogleFonts.poppinsTextTheme(),
     );
   }
 }
