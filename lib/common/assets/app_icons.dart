@@ -11,4 +11,6 @@ abstract interface class AppIcons {
   static const share = '$path/icon_share.svg';
   static const moreBorderCircle = '$path/icon_more_border_circle.svg';
   static const plus = '$path/icon_plus.svg';
+  static const albumAdd = '$path/icon_album_add.svg';
+  static const folderAdd = '$path/icon_folder_add.svg';
 }

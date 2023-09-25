@@ -45,6 +45,7 @@ dependencies:
   webview_flutter: ^3.0.4
   flutter_animate: ^4.2.0+1
   flutter_svg: ^2.0.7
+  modal_bottom_sheet: ^2.1.2
 
   # Service Locator
   get_it: ^7.6.4
@@ -88,6 +89,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 dependency_overrides:
   intl: any
+  modal_bottom_sheet: ^3.0.0-pre
 flutter:
 
   # The following line ensures that the Material Icons font is

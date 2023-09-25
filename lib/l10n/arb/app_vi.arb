@@ -9,6 +9,14 @@
   "text_all": "Tất cả ảnh",
   "text_select": "Chọn",
   "text_cancel": "Huỷ",
-  "text_select_items": "Select Items"
+  "text_select_items": "Select Items",
+  "text_albums": "Album",
+  "text_my_albums" : "Album của tôi",
+  "text_see_all": "Xem tất cả",
+  "text_media_type": "Loại phương tiện",
+  "text_folder": "Thư mục",
+  "text_desc_new_album": "Tạo album gồm các hình ảnh hoặc video",
+  "text_desc_new_folder": "Tạo thư mục để chứa những album của bạn",
+  "text_create": "Tạo"
 
 }
