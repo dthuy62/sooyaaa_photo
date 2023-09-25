@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
               height: context.mediaQuery.padding.bottom +
                   kBottomNavigationBarHeight +
                   2,
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SvgButton(AppIcons.share),
