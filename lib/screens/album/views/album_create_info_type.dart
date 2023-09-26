@@ -1,9 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../../common/extensions/context.dart';
 import '../../../common/widgets/svg_button.dart';
-import '../../new_album/new_album.dart';
 
 class AlbumCreateInfoType extends StatelessWidget {
   const AlbumCreateInfoType({
@@ -12,23 +11,19 @@ class AlbumCreateInfoType extends StatelessWidget {
     required this.iconSize,
     required this.name,
     required this.desc,
+    this.onTap,
   });
 
   final String iconName;
   final double iconSize;
   final String name;
   final String desc;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        CupertinoScaffold.showCupertinoModalBottomSheet(
-            context: context,
-            builder: (_) {
-              return NewAlbumScreen();
-            });
-      },
+      onTap: onTap,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
