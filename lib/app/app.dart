@@ -8,6 +8,7 @@ import '../domain/domain.dart';
 import '../l10n/l10n.dart';
 import '../navigation/navigation.dart';
 import '../theme/theme.dart';
+import 'app_route_observer.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -38,6 +39,9 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        navigatorObservers: [
+          AppRouteObserver(),
+        ],
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         debugShowCheckedModeBanner: false,

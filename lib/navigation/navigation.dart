@@ -12,6 +12,8 @@ abstract class AppRoutes {
   static const home = 'home';
   static const album = 'album';
   static const search = 'search';
+  static const newAlbumOptions = 'newAlbumOptions';
+  static const createNewAlbum = 'createNewAlbum';
 }
 
 abstract class AppNavigation {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common/extensions/extensions.dart';
+import '../../l10n/l10n.dart';
 
 class NewAlbumScreen extends StatelessWidget {
   const NewAlbumScreen({super.key});
@@ -14,28 +15,28 @@ class NewAlbumScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Đặt tên cho thư mục của bạn',
+              context.l10n.text_new_album_name,
               style: context.textTheme.titleMedium
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 32),
               child: TextField(
-                textAlign: TextAlign.center,
+                  textAlign: TextAlign.center,
                   controller: TextEditingController(
-
                       text: 'Danh sách phát thứ 4 của tôi')),
             ),
             TextButton(
               onPressed: () {},
-              child: Text('Tạo'),
               style: TextButton.styleFrom(
-                backgroundColor: Colors.grey.shade200,
+                backgroundColor: context.theme.colorScheme.primary,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
                 minimumSize: const Size(50, 30),
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               ),
+              child: Text(context.l10n.text_create,
+                  style: context.textTheme.titleSmall),
             )
           ],
         ),

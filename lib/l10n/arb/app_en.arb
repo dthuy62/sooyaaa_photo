@@ -14,8 +14,9 @@
     "text_my_albums" : "My Albums",
     "text_see_all": "See All",
     "text_media_type": "Media Types",
-    "text_folder": "Fol",
+    "text_folder": "Folder",
     "text_desc_new_album": "Create albums of images or videos",
     "text_desc_new_folder": "Create folders to store your albums",
-    "text_create": "Create"
+    "text_create": "Create",
+    "text_new_album_name": "Give your album a name"
 }

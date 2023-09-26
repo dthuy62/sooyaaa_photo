@@ -7,6 +7,7 @@ import '../../common/assets/app_icons.dart';
 import '../../common/extensions/extensions.dart';
 import '../../common/widgets/svg_button.dart';
 import '../../l10n/l10n.dart';
+import '../../navigation/navigation.dart';
 import '../new_album/new_album_screen.dart';
 import 'views/create_album_folder_bottom_sheet.dart';
 
@@ -29,15 +30,22 @@ class AlbumScreen extends StatelessWidget {
                       onTap: () {
                         showBarModalBottomSheet(
                           context: context,
+                          settings: const RouteSettings(
+                            name: AppRoutes.newAlbumOptions,
+                          ),
                           builder: (_) {
                             return CreateAlbumFolderBottomSheet(
                               onTap: () {
-                                context.navigator.pop();
+                                context.navigator.popUntil((route) =>
+                                    route.settings.name == AppRoutes.home);
                                 Future.delayed(
                                     const Duration(milliseconds: 500), () {
                                   CupertinoScaffold
                                       .showCupertinoModalBottomSheet(
                                           context: context,
+                                          settings: const RouteSettings(
+                                            name: AppRoutes.createNewAlbum,
+                                          ),
                                           builder: (_) {
                                             return const NewAlbumScreen();
                                           });
@@ -120,8 +128,8 @@ class AlbumScreen extends StatelessWidget {
                                         fit: BoxFit.cover,
                                       ),
                                     ),
-                                    Text('Gần đây'),
-                                    Text('1.023')
+                                    const Text('Gần đây'),
+                                    const Text('1.023')
                                   ],
                                 );
                               }),
