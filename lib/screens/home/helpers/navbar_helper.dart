@@ -22,14 +22,14 @@ abstract interface class NavbarHelper {
 
   static const index = 0;
 
-  static const buildBody = [
+  static const mainScreens = [
     GalleryScreen(),
     ForYouScreen(),
     AlbumScreen(),
     SearchScreen(),
   ];
 
-  static List<MenuItem> buildMenuItems(BuildContext context) => [
+  static List<MenuItem> buildHomeMenuItems(BuildContext context) => [
         MenuItem(AppIcons.gallery, context.l10n.text_gallery),
         MenuItem(AppIcons.forYou, context.l10n.text_for_you),
         MenuItem(AppIcons.albums, context.l10n.text_album),
