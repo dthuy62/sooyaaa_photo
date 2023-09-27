@@ -39,15 +39,16 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        navigatorObservers: [
-          AppRouteObserver(),
-        ],
-        theme: AppTheme.light,
-        darkTheme: AppTheme.dark,
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        onGenerateRoute: AppNavigation.onGeneratedRoute,
-        initialRoute: AppRoutes.home);
+      navigatorObservers: [
+        AppRouteObserver(),
+      ],
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      onGenerateRoute: AppNavigation.onGeneratedRoute,
+      initialRoute: AppRoutes.login,
+    );
   }
 }

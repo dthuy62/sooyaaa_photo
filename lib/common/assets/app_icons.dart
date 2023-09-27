@@ -14,4 +14,8 @@ abstract interface class AppIcons {
   static const albumAdd = '$path/icon_album_add.svg';
   static const folderAdd = '$path/icon_folder_add.svg';
   static const clear = '$path/icon_clear.svg';
+  static const google = '$path/icon_google.svg';
+  static const facebook = '$path/icon_facebook.svg';
+  static const apple = '$path/icon_apple.svg';
+  static const phone = '$path/icon_phone.svg';
 }

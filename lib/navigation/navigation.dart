@@ -4,6 +4,7 @@ import '../screens/album/album.dart';
 import '../screens/for_you/for_you.dart';
 import '../screens/gallery/gallery.dart';
 import '../screens/home/home.dart';
+import '../screens/login/login.dart';
 import '../screens/search/search.dart';
 
 abstract class AppRoutes {
@@ -14,11 +15,14 @@ abstract class AppRoutes {
   static const search = 'search';
   static const newAlbumOptions = 'newAlbumOptions';
   static const createNewAlbum = 'createNewAlbum';
+  static const login = 'login';
 }
 
 abstract class AppNavigation {
   static Route<dynamic>? onGeneratedRoute(RouteSettings settings) {
     switch (settings.name) {
+      case AppRoutes.login:
+        return AppPageRoute((_) => const LoginScreen(), settings);
       case AppRoutes.gallery:
         return AppPageRoute((_) => const GalleryScreen(), settings);
       case AppRoutes.home:

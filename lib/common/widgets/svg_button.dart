@@ -39,10 +39,12 @@ class SvgButton extends StatelessWidget {
             padding: padding,
             child: SvgPicture.asset(
               assetName,
-              colorFilter: ColorFilter.mode(
-                color ?? context.theme.colorScheme.primary,
-                BlendMode.srcIn,
-              ),
+              colorFilter: color == null
+                  ? null
+                  : ColorFilter.mode(
+                      color ?? context.theme.colorScheme.primary,
+                      BlendMode.srcIn,
+                    ),
               height: size ?? 24,
               width: size ?? 24,
             ),

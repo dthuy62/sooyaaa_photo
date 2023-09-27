@@ -50,6 +50,8 @@ dependencies:
   cloud_firestore: ^4.9.2
   firebase_crashlytics: ^3.3.6
   firebase_core: ^2.16.0
+  firebase_auth: ^4.10.0
+  google_sign_in: ^6.1.5
 
   # Service Locator
   get_it: ^7.6.4

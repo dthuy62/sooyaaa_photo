@@ -1,10 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.tsnanh.bit">
+    package="dev.dthuy.hnt">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
    <application
-        android:label="bit"
+        android:label="Hnt"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

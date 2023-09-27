@@ -1,4 +1,4 @@
-package dev.tsnanh.bit
+package dev.dthuy.hnt
 
 import io.flutter.embedding.android.FlutterActivity
 
