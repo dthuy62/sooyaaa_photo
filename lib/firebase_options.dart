@@ -63,6 +63,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '173608177175',
     projectId: 'photos-59db5',
     storageBucket: 'photos-59db5.appspot.com',
-    iosBundleId: 'dev.tsnanh.bit',
+    iosBundleId: 'dev.dthuy.sooyaaa',
   );
 }
