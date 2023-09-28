@@ -6,6 +6,7 @@ import '../screens/gallery/gallery.dart';
 import '../screens/home/home.dart';
 import '../screens/login/login.dart';
 import '../screens/search/search.dart';
+import '../screens/settings/settings.dart';
 
 abstract class AppRoutes {
   static const gallery = 'gallery';
@@ -16,6 +17,7 @@ abstract class AppRoutes {
   static const newAlbumOptions = 'newAlbumOptions';
   static const createNewAlbum = 'createNewAlbum';
   static const login = 'login';
+  static const settings = 'settings';
 }
 
 abstract class AppNavigation {
@@ -36,6 +38,8 @@ abstract class AppNavigation {
         );
       case AppRoutes.search:
         return AppPageRoute((_) => const SearchScreen(), settings);
+      case AppRoutes.settings:
+        return AppPageRoute((_) => const SettingScreen(), settings);
       default:
         throw 'Cannot find destination route';
     }

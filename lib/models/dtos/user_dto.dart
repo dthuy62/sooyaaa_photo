@@ -1,17 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_dto.freezed.dart';
-
 part 'user_dto.g.dart';
 
 @freezed
 class UserJson with _$UserJson {
   const factory UserJson({
     required String id,
-    required String username,
-    required String name,
-    required String url,
-    required String imageUrl,
+    required String displayName,
+    required String email,
+    required String photoUrl,
   }) = _UserJson;
 
   factory UserJson.fromJson(Map<String, Object?> json) =>

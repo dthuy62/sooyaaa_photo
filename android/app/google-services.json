@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "173608177175",
+    "project_id": "photos-59db5",
+    "storage_bucket": "photos-59db5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173608177175:android:43c0de46fb9e5924255652",
+        "android_client_info": {
+          "package_name": "dev.dthuy.hnt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173608177175-c0cbq75a1motf2n374uaicr82rcka19k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfOEKPhVjNh0dORR7Uipe4Pni4q6F4DxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "173608177175-c0cbq75a1motf2n374uaicr82rcka19k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "173608177175-p4q0rsuirk80rhn4hov73kf479a6ba8t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.dthuy.hnt"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

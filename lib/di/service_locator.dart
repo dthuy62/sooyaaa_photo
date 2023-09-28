@@ -1,11 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
 import '../app_flavor.dart';
-import '../data/remote/apis/auth/medium_auth_api.dart';
-import '../data/remote/data_sources/medium/medium_data_source.dart';
-import '../data/remote/data_sources/medium/medium_repository_impl.dart';
+import '../data/remote/apis/auth/firebase_auth_api.dart';
+import '../data/remote/data_sources/firebase/firebase_data_source.dart';
+import '../data/remote/data_sources/firebase/firebase_repository_impl.dart';
 import '../data/remote/dio.dart';
-import '../domain/repositories/medium_repository.dart';
+import '../domain/repositories/firebase_repository.dart';
 
 part 'network_module.dart';
 
